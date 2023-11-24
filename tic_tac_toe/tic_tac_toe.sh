@@ -102,8 +102,6 @@ make_turn() {
         continue
       fi
 
-
-
       if [ "${board["$location_x"]}" == " " ]; then
           board["${location_x}"]=$sign
           return 0
@@ -147,7 +145,6 @@ start_game()  {
         return 0
       fi
 
-
       make_turn "${second_player}" "o"
       print_board
       if check_win "o"; then
@@ -164,6 +161,3 @@ start_game()  {
 }
 
 start_game
-
-
-
