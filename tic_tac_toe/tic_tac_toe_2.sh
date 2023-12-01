@@ -255,8 +255,6 @@ play_saved_game() {
   echo "Second Player: $second_player"
   echo "Turn: $turn"
 
-
-  echo "GOWNo -------------"
   declare -g board
   board=()
   for ((i=0; i<9; i++)); do
@@ -268,7 +266,6 @@ play_saved_game() {
     fi
     echo "${board[$i]}"
   done
-  echo "GOWNo -------------"
 
   if [ "${turn}" == 'x' ]; then
     play "${first_player}" "${turn}" "${game_id}" "${second_player}"
@@ -309,7 +306,6 @@ play () {
 
           if [ "${board["$input"]}" == " " ]; then
               board["${input}"]=$mark
-              echo "Tutaj jestem!"
               break
           else
               echo "This location is already taken!"
