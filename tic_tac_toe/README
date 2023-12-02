@@ -1,3 +1,11 @@
 To run script:
 
 /bin/bash name_of_script.sh
+
+tic_tac_toe - works in turn-based game mode
+tic_tac_toe - tic_tac_toe + allows you to save and play the game
+
+if jq package not installed:
+
+sudo apt-get update
+sudo apt-get install jq
