@@ -1,0 +1,28 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+stories:
+- story: order1
+  steps:
+  - user: |
+      hello there!
+    intent: greet
+  - action: utter_greet
+  - user: |
+      menu
+    intent: menu
+  - action: action_show_when_open
+  - user: |
+      When are you open?
+    intent: ask_working_hours
+  - action: utter_working_hours
+  - user: |
+      I want order a pizza
+  - intent: choose_meal
+  - action: action_choose_pizza
+  - user: |
+      Bye!
+    intent: goodbye
+  - action: utter_goodbye
+
+
