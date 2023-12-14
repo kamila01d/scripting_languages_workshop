@@ -1,0 +1,35 @@
+version: "3.1"
+
+rules:
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Show order
+  steps:
+  - intent: choose_meal
+  - action: action_order
+
+- rule: Tell if its open
+  steps:
+  - intent: ask_restaurant_status
+  - action: action_tell_if_open
+
+- rule: Ask for working hours
+  steps:
+  - intent: ask_working_hours
+  - action: action_show_when_open
+
+- rule: Show restaurant's menu
+  steps:
+    - intent: menu
+    - action: action_show_menu
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+
+

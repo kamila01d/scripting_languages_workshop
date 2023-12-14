@@ -1,0 +1,59 @@
+version: "3.1"
+
+intents:
+  - greet
+  - menu
+  - ask_working_hours
+  - ask_restaurant_status
+  - choose_meal
+  - goodbye
+  - bot_challenge
+
+
+entities:
+- meal
+- day
+- time
+slots:
+  meal:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: meal
+  day:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: day
+  time:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: time
+responses:
+  utter_greet:
+  - text: "Hello! How can I help you?"
+  - text: "Hey! How are you?"
+  - text: "Hello!"
+
+  utter_goodbye:
+    - text: "Bye"
+    - text: "Goodbye!"
+    - text: "See you later!"
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+
+
+actions:
+  - action_order
+  - action_show_menu
+  - action_show_when_open
+  - action_tell_if_open
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: false

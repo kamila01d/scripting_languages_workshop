@@ -1,0 +1,104 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: menu
+  examples: |
+    - Can you show me the menu?
+    - menu
+    - I want to place an order
+
+- intent: ask_working_hours
+  examples: |
+    - When the restaurant is open?
+    - When the restaurant is open
+    - When are you open
+    - When restuarant opens?
+    - When Can I come to this restuarant?
+
+- intent: ask_restaurant_status
+  examples: |
+    - Is the restaurant open on [Monday](day) at [13](time)?
+    - What are the opening hours on [Tuesday](day)?
+    - Can I visit on [Wednesday](day) evening?
+    - Is the restaurant open on [Monday](day)
+    - Is the restaurant open on [Monday](day)?
+
+- lookup: day
+  examples: |
+    - Monday
+    - thursday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Sunday
+    - Saturday
+    - sunday
+    - monday
+
+- lookup: time
+  examples: |
+    - 10
+    - 1
+    - 15?
+    - 17?
+    - 14
+    - 15
+    - 11
+    - 13?
+    - 15
+    - 23
+    - 1?
+    - 6 ?
+    - 8
+    - 22?
+- intent: choose_meal
+  examples: |
+    - I want to have [Pizza](meal)
+    - I would like [Lasagne](meal)
+    - I want to have [Hot-Dog](meal).
+    - I would like to order [Burger](meal).
+    - I want to have [Spaghetti Carbonara](meal)
+    - I want to have [Tiramisu](meal)
+
+- lookup: meal
+  examples: |
+    - Pizza
+    - Lasagne
+    - hot dog
+    - hot-dog
+    - burger
+    - spaghetti carbonara
+    - tiramisu
+    - Tiramsiu
+    - pierogi
+    - watrer
+    
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - Who are you?
