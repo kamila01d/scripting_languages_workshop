@@ -1,0 +1,100 @@
+version: "3.1"
+
+stories:
+
+- story: order
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: menu
+  - action: action_show_menu
+  - intent: ask_working_hours
+  - action: action_show_when_open
+  - intent: ask_restaurant_status
+  - action: action_tell_if_open
+  - intent: choose_meal
+    entities:
+    - meal: margarita
+  - action: action_order
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: order1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_restaurant_status
+  - action: action_tell_if_open
+  - intent: choose_meal
+    entities:
+    - meal: pizza
+  - action: action_order
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: order2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: menu
+  - action: action_show_menu
+  - intent: choose_meal
+    entities:
+    - meal: Pizza
+  - action: action_order
+  - intent: ask_working_hours
+  - action: action_show_when_open
+  - intent: ask_restaurant_status
+  - action: action_tell_if_open
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: order3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: menu
+  - action: action_show_menu
+  - intent: choose_meal
+    entities:
+    - meal: Hot-Dog
+  - action: action_order
+  - intent: ask_working_hours
+  - action: action_show_when_open
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: order4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_working_hours
+  - action: action_show_when_open
+  - intent: menu
+  - action: action_show_menu
+  - intent: choose_meal
+    entities:
+    - meal: Tiramisu
+  - action: action_order
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: order5
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: menu
+  - action: action_show_menu
+  - intent: choose_meal
+    entities:
+    - meal: Tiramisu
+  - action: action_order
+  - intent: choose_meal
+    entities:
+      - meal: Pizza
+  - action: action_order
+  - intent: goodbye
+  - action: utter_goodbye
