@@ -4,7 +4,6 @@ local Model = require("lapis.db.model").Model
 local json_params = require("lapis.application").json_params
 local app = lapis.Application()
 
--- Define the models
 local Categories = Model:extend("categories", {
   primary_key = "id"
 })
@@ -19,11 +18,11 @@ local Products = Model:extend("products", {
 
 app:match("/categories", {
     GET = function(self)
-        -- Code to list categories
+        local categories = Categories:select()
+        return { json = categories }
     end,
 
     POST = json_params(function(self)
-        -- Create a new category
         local category = Categories:create {
             name = self.params.name
         }
@@ -31,16 +30,16 @@ app:match("/categories", {
     end)
 })
 
--- CRUD operations for products under a category
+
 app:match("/categories/:category_id/products", {
   GET = function(self)
-    -- Read all products in a category
+
     local products = Products:select("where category_id = ?", self.params.category_id)
     return { json = products }
   end,
 
   POST = json_params(function(self)
-    -- Create a new product
+
     local product = Products:create {
       name = self.params.name,
       price = self.params.price,
@@ -52,7 +51,7 @@ app:match("/categories/:category_id/products", {
 
 app:match("/categories/:category_id/products/:id", {
   GET = function(self)
-    -- Read a single product
+
     local product = Products:find(self.params.id)
     if product then
       return { json = product }
@@ -62,7 +61,7 @@ app:match("/categories/:category_id/products/:id", {
   end,
 
   PUT = json_params(function(self)
-    -- Update a product
+
     local product = Products:find(self.params.id)
     if product then
       product:update {
@@ -76,7 +75,7 @@ app:match("/categories/:category_id/products/:id", {
   end),
 
   DELETE = function(self)
-    -- Delete a product
+
     local product = Products:find(self.params.id)
     if product then
       product:delete()
